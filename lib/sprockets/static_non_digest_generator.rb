@@ -35,6 +35,8 @@ module Sprockets
         if digest_path = @digests[logical_path]
           abs_digest_path  = "#{@target}/#{digest_path}"
           abs_logical_path = "#{@target}/#{logical_path}"
+          
+          next unless File.exists?(abs_digest_path)
 
           mtime = File.mtime(abs_digest_path)
 
